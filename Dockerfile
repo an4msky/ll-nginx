@@ -5,6 +5,8 @@ COPY nginx.conf /etc/opt/rh/rh-nginx112/nginx/nginx.conf
 
 # expose HTTP
 EXPOSE 8082
+EXPOSE 8090
+
 
 # Run
 CMD [ "/opt/rh/rh-nginx112/root/usr/sbin/nginx", "-g", "daemon off;"]
