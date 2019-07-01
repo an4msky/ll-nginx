@@ -1,4 +1,4 @@
-FROM docker-registry.default.svc:5000/openshift/nginx-example:latest
+FROM docker-registry.default.svc:5000/products/nginx-example:latest
 
 COPY learninglocker.conf /opt/app-root/etc/nginx.d/learninglocker.conf
 COPY nginx.conf /etc/opt/rh/rh-nginx112/nginx/nginx.conf 
