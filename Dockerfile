@@ -1,7 +1,10 @@
 FROM docker-registry.default.svc:5000/openshift/nginx-example:latest
 
-RUN mkdir /etc/nginx/sites-available
-RUN mkdir /etc/nginx/sites-enabled
-COPY learninglocker.conf /etc/nginx/sites-available/learninglocker.conf
-COPY nginx.conf /etc/nginx/nginx.conf
-RUN ln -s /etc/nginx/sites-available/learninglocker.conf /etc/nginx/sites-enabled/learninglocker.conf
+COPY learninglocker.conf /opt/app-root/etc/nginx.d/learninglocker.conf
+COPY nginx.conf /etc/opt/rh/rh-nginx112/nginx/nginx.conf 
+
+# expose HTTP
+EXPOSE 8082
+
+# Run
+CMD [ "/usr/sbin/nginx", "-g", "daemon off;" ]
